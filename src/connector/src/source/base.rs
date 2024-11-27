@@ -33,6 +33,7 @@ use risingwave_pb::plan_common::ExternalTableDesc;
 use risingwave_pb::source::ConnectorSplit;
 use serde::de::DeserializeOwned;
 use tokio::sync::mpsc;
+use tracing::info;
 
 use super::cdc::DebeziumCdcMeta;
 use super::datagen::DatagenMeta;
@@ -443,6 +444,7 @@ impl ConnectorProperties {
         let connector = options_with_secret
             .remove(UPSTREAM_SOURCE_KEY)
             .ok_or_else(|| anyhow!("Must specify 'connector' in WITH clause"))?;
+        info!("DEBUG: connector: {:?}", connector);
         match_source_name_str!(
             connector.to_lowercase().as_str(),
             PropType,

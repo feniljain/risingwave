@@ -27,6 +27,9 @@ use crate::source::common::into_chunk_stream;
 use crate::source::mqtt::MqttProperties;
 use crate::source::{BoxChunkSourceStream, Column, SourceContextRef, SourceMessage, SplitReader};
 
+// TODO(feniljain): Where does this piece of code run? In compute node or frontend end?
+
+// TODO(feniljain): What all fields do split reader structs have in common?
 pub struct MqttSplitReader {
     eventloop: rumqttc::v5::EventLoop,
     client: rumqttc::v5::AsyncClient,

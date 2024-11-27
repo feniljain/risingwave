@@ -117,6 +117,7 @@ impl SplitEnumerator for MqttSplitEnumerator {
         })
     }
 
+    // TODO(feniljain): Does google pub/sub return a static list of splits?
     async fn list_splits(&mut self) -> ConnectorResult<Vec<MqttSplit>> {
         if !self.connected.load(std::sync::atomic::Ordering::Relaxed) {
             let start = std::time::Instant::now();

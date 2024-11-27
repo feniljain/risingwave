@@ -25,6 +25,7 @@ pub mod mqtt;
 pub mod nats;
 pub mod nexmark;
 pub mod pulsar;
+pub mod amqp;
 
 use std::future::IntoFuture;
 
@@ -35,6 +36,7 @@ pub use google_pubsub::GOOGLE_PUBSUB_CONNECTOR;
 pub use kafka::KAFKA_CONNECTOR;
 pub use kinesis::KINESIS_CONNECTOR;
 pub use mqtt::MQTT_CONNECTOR;
+pub use amqp::AMQP_CONNECTOR;
 pub use nats::NATS_CONNECTOR;
 mod common;
 pub mod iceberg;

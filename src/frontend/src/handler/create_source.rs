@@ -55,7 +55,7 @@ use risingwave_connector::source::test_source::TEST_CONNECTOR;
 pub use risingwave_connector::source::UPSTREAM_SOURCE_KEY;
 use risingwave_connector::source::{
     ConnectorProperties, AZBLOB_CONNECTOR, GCS_CONNECTOR, GOOGLE_PUBSUB_CONNECTOR, KAFKA_CONNECTOR,
-    KINESIS_CONNECTOR, MQTT_CONNECTOR, NATS_CONNECTOR, NEXMARK_CONNECTOR, OPENDAL_S3_CONNECTOR,
+    KINESIS_CONNECTOR, MQTT_CONNECTOR, AMQP_CONNECTOR, NATS_CONNECTOR, NEXMARK_CONNECTOR, OPENDAL_S3_CONNECTOR,
     POSIX_FS_CONNECTOR, PULSAR_CONNECTOR, S3_CONNECTOR,
 };
 use risingwave_connector::WithPropertiesExt;
@@ -1124,6 +1124,9 @@ static CONNECTORS_COMPATIBLE_FORMATS: LazyLock<HashMap<String, HashMap<Format, V
                     Format::Plain => vec![Encode::Json, Encode::Protobuf, Encode::Bytes],
                 ),
                 MQTT_CONNECTOR => hashmap!(
+                    Format::Plain => vec![Encode::Json, Encode::Bytes],
+                ),
+                AMQP_CONNECTOR => hashmap!(
                     Format::Plain => vec![Encode::Json, Encode::Bytes],
                 ),
                 TEST_CONNECTOR => hashmap!(
