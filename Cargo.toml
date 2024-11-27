@@ -3,7 +3,7 @@ cargo-features = ["profile-rustflags"]
 [workspace]
 members = [
     "src/batch",
-    "src/bench",
+    # "src/bench",
     "src/cmd",
     "src/cmd_all",
     "src/common",
